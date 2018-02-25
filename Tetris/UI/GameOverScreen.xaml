@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="Tetris.GameOverScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Tetris"
+             mc:Ignorable="d" 
+             Height="300" Width="300" >
+    <UserControl.Resources>
+        <ResourceDictionary Source="MyStyles.xaml"/>
+    </UserControl.Resources>
+
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0" SpreadMethod="Reflect">
+                <GradientStop Color="Yellow" Offset="1"/>
+                <GradientStop Color="DarkOrange"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Name="RestartButton" Grid.Column="0" Margin="20,30,20,30" Content="Restart"/>
+            <Button Name="ExitButton" Grid.Column="1" Margin="20,30,20,30"  Content="Exit" />
+        </Grid>
+        <Label x:Name="text" FontSize="15" FontWeight="DemiBold" Grid.Row="0" Height="205" Margin="0,0,0,90" Grid.RowSpan="2"/>
+    </Grid>
+</UserControl>
