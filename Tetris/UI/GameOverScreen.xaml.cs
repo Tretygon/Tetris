@@ -32,23 +32,23 @@ namespace Tetris
                 
                 if (winner.Score == 0)
                 {
-                    Loaded += (a, b) => App.wnd.PlaySound("SadMusic.wav");
+                    Loaded += (a, b) => App.wnd.PlaySound("SadMusic.mp3");
                 }
                 else if (winner.Score < 1000)
                 {
-                    Loaded += (a, b) => App.wnd.PlaySound("Defeat.wav");
+                    Loaded += (a, b) => App.wnd.PlaySound("Defeat.mp3");
                 }
                 else if (winner.Score < 3000)
                 {
-                    Loaded += (a, b) => App.wnd.PlaySound("Victory.wav");
+                    Loaded += (a, b) => App.wnd.PlaySound("Victory.mp3");
                 }
                 else if (winner.Score < 5000)
                 {
-                    Loaded += (a, b) => App.wnd.PlaySound("YAY.wav");
+                    Loaded += (a, b) => App.wnd.PlaySound("YAY.mp3");
                 }
                 else
                 {
-                    Loaded += (a, b) => App.wnd.PlaySound("Champions.wav");
+                    Loaded += (a, b) => App.wnd.PlaySound("Champions.mp3");
                 }
 
                 if (winner.Score == 0)

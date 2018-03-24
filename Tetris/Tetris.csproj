@@ -28,6 +28,7 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -164,17 +165,15 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Sound\Champions.wav" />
-    <Content Include="Sound\Defeat.wav" />
-    <Content Include="Sound\Fire.wav" />
-    <Content Include="Sound\LastOne.wav" />
-    <Content Include="Sound\Music.wav" />
-    <Content Include="Sound\MusicPiano.wav" />
-    <Content Include="Sound\SadMusic.wav" />
-    <Content Include="Sound\SlideDown.wav" />
-    <Content Include="Sound\SlideUp.wav" />
-    <Content Include="Sound\VICTORY.wav" />
-    <Content Include="Sound\YAY.wav" />
+    <Content Include="Sound\Champions.mp3" />
+    <Content Include="Sound\Defeat.mp3" />
+    <Content Include="Sound\Fire.mp3" />
+    <Content Include="Sound\Music.mp3" />
+    <Content Include="Sound\SadMusic.mp3" />
+    <Content Include="Sound\SlideDown.mp3" />
+    <Content Include="Sound\SlideUp.mp3" />
+    <Content Include="Sound\VICTORY.mp3" />
+    <Content Include="Sound\YAY.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

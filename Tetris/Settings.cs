@@ -56,15 +56,10 @@ namespace Tetris
         public bool soundEnabled = true;
         public bool controlsReversed = false;
         public float volume = 0.3f;
-        public Uri MusicUri => new Uri(uriPath, urikind);
-        public UriKind urikind = UriKind.Relative;
+        public Uri MusicUri => new Uri(uriPath);
 
-#if DEBUG
-        public string uriPath = @"../../Sound/Music.wav";
-#else
-        public string uriPath =  @"Sound/Music.wav";
-#endif
-        
+        public string uriPath = Environment.CurrentDirectory + @"/Sound/Music.mp3";
+
 
         public PlayerSettings player1Settings = new PlayerSettings(Key.A, Key.D, Key.W, Key.S, Pallete.Scheme.Solid, "Player1");
         public PlayerSettings player2Settings = new PlayerSettings(Key.Left, Key.Right, Key.Up, Key.Down, Pallete.Scheme.Solid, "Player2");
@@ -95,6 +90,7 @@ namespace Tetris
         }
         public static GameSettings Load()
         {
+            
             if (File.Exists(filePath))
             {
                 try

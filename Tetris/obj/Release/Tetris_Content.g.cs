@@ -8,16 +8,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/champions.wav")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/defeat.wav")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/fire.wav")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/lastone.wav")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/music.wav")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/musicpiano.wav")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/sadmusic.wav")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/slidedown.wav")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/slideup.wav")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/victory.wav")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/yay.wav")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/champions.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/defeat.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/fire.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/music.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/sadmusic.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/slidedown.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/slideup.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/victory.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound/yay.mp3")]
 
 

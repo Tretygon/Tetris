@@ -43,10 +43,13 @@ namespace Tetris
             get => App.Settings.multiplayerEnabled;
             set
             {
-                Players[1].IsEnabled = value;
-                App.Settings.multiplayerEnabled = Players[1].IsEnabled;
-                AdjustControls();
-                AdjustWidth();
+                Dispatcher.Invoke(() =>
+                {
+                    Players[1].IsEnabled = value;
+                    App.Settings.multiplayerEnabled = Players[1].IsEnabled;
+                    AdjustControls();
+                    AdjustWidth();
+                });
             }
         }
         public bool IsPaused
@@ -54,11 +57,14 @@ namespace Tetris
             get => isPaused;
             set
             {
-                isPaused = value;
-                Players.ForEach(p => p.Pause(isPaused));
-                ChangeMusicPlayerState(!isPaused);
-                PauseButton.IsChecked = isPaused;
-                Dispatcher.Invoke(() => PauseButton.Content = isPaused ? "Resume" : "Pause");
+                Dispatcher.Invoke(() =>
+                {
+                    isPaused = value;
+                    Players.ForEach(p => p.Pause(isPaused));
+                    ChangeMusicPlayerState(!isPaused);
+                    PauseButton.IsChecked = isPaused;
+                    PauseButton.Content = isPaused ? "Resume" : "Pause";
+                });
             }
         }
         public bool SoundEnabled
@@ -139,11 +145,14 @@ namespace Tetris
         {
             if (Players.TrueForAll(p => p.IsGameOver || !p.IsEnabled || !Players.Where(p2 => p2 != p).Any(p2 => p.Score < p2.Score)))
             {
-                IsPaused = true;
-                var popUp = new PopUpWindow();
-                popUp.Content = new GameOverScreen(popUp);
-                popUp.Title = "Game over";
-                popUp.ShowDialog();
+                Dispatcher.Invoke(() =>
+                {
+                    IsPaused = true;
+                    var popUp = new PopUpWindow();
+                    popUp.Content = new GameOverScreen(popUp);
+                    popUp.Title = "Game over";
+                    popUp.ShowDialog();
+                });
             }
             else
                 Players.ForEach(p => p.scoreToSurpass = score);
@@ -157,11 +166,7 @@ namespace Tetris
             {
                 Dispatcher.Invoke(() =>
                 {
-#if DEBUG
-                        NoisePlayer.Open(new Uri($@"../../Sound/{file}", UriKind.Relative));
-#else
-                        NoisePlayer.Open(new Uri($@"Sound/{file}", UriKind.Relative));
-#endif
+                    NoisePlayer.Open(new Uri(Environment.CurrentDirectory + $@"/Sound/{file}"));
                     NoisePlayer.Play();
                 });
             }
@@ -198,12 +203,12 @@ namespace Tetris
                     NewGame();
                     stretchingInProgress = false;
                 };
-                this.Dispatcher.Invoke(() =>
+                Dispatcher.Invoke(() =>
                 {
                     stretchingInProgress = true;
                     IsPaused = true;
                     BeginAnimation(WidthProperty, AdjustWidth);
-                    PlaySound(MultiplayerEnabled ? "SlideUp.wav" : "SlideDown.wav");
+                    PlaySound(MultiplayerEnabled ? "SlideUp.mp3" : "SlideDown.mp3");
                 });
             }
         }
@@ -245,25 +250,31 @@ namespace Tetris
             }
         }
         
-        public async void BurnDown()
+        public void BurnDown()
         {
-            MusicPlayer.Volume = 0;
-            PlaySound("Fire.wav");
-            MainGrid.Children.Clear();
-            MainGrid.Background = new LinearGradientBrush(Colors.OrangeRed, Colors.DarkOrange, 90);
-            await Task.Delay(2000);
-            Application.Current.Shutdown();
+            Dispatcher.Invoke(async() =>
+            {
+                MusicPlayer.Volume = 0;
+                PlaySound("Fire.mp3");
+                MainGrid.Children.Clear();
+                MainGrid.Background = new LinearGradientBrush(Colors.OrangeRed, Colors.DarkOrange, 90);
+                await Task.Delay(2000);
+                Application.Current.Shutdown();
+            });
+            
         }
         private void OpenMenu()
         {
-            bool temp = IsPaused;
-            IsPaused = true;
-            new PopUpWindow
+            Dispatcher.Invoke(() =>
             {
-                Content = new MenuIndex(),
-                Title = "Menu",
-            }.ShowDialog();
-            IsPaused = temp;
+                bool temp = IsPaused;
+                IsPaused = true;
+                new PopUpWindow{
+                    Content = new MenuIndex(),
+                    Title = "Menu",
+                }.ShowDialog();
+                IsPaused = temp;
+            });
         }
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
@@ -355,7 +366,6 @@ namespace Tetris
             openFileDialog.Filter = "MP3 files (*.mp3)|*.mp3| Wav files(*.wav)|*.wav|All files (*.*)|*.*";
             if (openFileDialog.ShowDialog() == true)
             {
-                App.Settings.urikind = UriKind.Absolute;
                 App.Settings.uriPath = openFileDialog.FileName;
                 MusicPlayer.Open(App.Settings.MusicUri);
             }
