@@ -24,7 +24,7 @@ namespace Tetris
                 case Scheme.Bright:
                     ShapeColoring = new Dictionary<Shapes, Brush>()
                     {
-                        {Shapes.Block, Brushes.Yellow},  //brown?
+                        {Shapes.Block, Brushes.Yellow},  
                         { Shapes.I, Brushes.Aqua},
                         { Shapes.L, Brushes.Magenta},
                         { Shapes.S, Brushes.Red},

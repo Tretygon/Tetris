@@ -22,4 +22,3 @@ C:\Users\zasadil\Desktop\Tetris\Tetris\obj\Release\Tetris.csproj.CoreCompileInpu
 C:\Users\zasadil\Desktop\Tetris\Tetris\obj\Release\Tetris.exe
 C:\Users\zasadil\Desktop\Tetris\Tetris\obj\Release\Tetris.pdb
 C:\Users\zasadil\Desktop\Tetris\Tetris\obj\Release\Tetris_Content.g.cs
-C:\Users\zasadil\Desktop\Tetris\Tetris\obj\Release\Tetris.csprojResolveAssemblyReference.cache

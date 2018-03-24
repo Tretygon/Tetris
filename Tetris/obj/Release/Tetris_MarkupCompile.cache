@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-I:\Tetris\Tetris\obj\Release\
+C:\Users\zasadil\Desktop\Tetris\Tetris\obj\Release\
 Tetris
 none
 false
 TRACE
-I:\Tetris\Tetris\App.xaml
+C:\Users\zasadil\Desktop\Tetris\Tetris\App.xaml
 6-1953712550
 91908280605
-20-281236920
+161747200204
 131569487696
 UI\CustomisePlayersScreen.xaml;UI\GameOverScreen.xaml;UI\MainWindow.xaml;UI\PopUpWindow.xaml;UI\Menu.xaml;UI\MyStyles.xaml;
 
-True
+False
 
